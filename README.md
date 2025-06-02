@@ -22,5 +22,6 @@ Try it out here:[Create your social media content with IdeaForgeX now](https://i
 - **Modern UI/UX**  
   Built with **React**, **Next.js**, and **Tailwind CSS** for a sleek, responsive, and accessible interface.
 
+Made by Smart Builders
 
 
