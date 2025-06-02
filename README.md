@@ -19,7 +19,7 @@ Try it out here:[Create your social media content with IdeaForgeX now](https://i
 - **Analytics Dashboard**   
   Gain insights into post performance, engagement metrics, and growth tracking.
 
-- 🎨 **Modern UI/UX**  
+- **Modern UI/UX**  
   Built with **React**, **Next.js**, and **Tailwind CSS** for a sleek, responsive, and accessible interface.
 
 
