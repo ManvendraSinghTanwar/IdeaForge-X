@@ -2,7 +2,6 @@
 
 **IdeaForge X** is a modern, full-stack content creation and management platform. It empowers creators, marketers, and businesses to generate, organize, and publish content across multiple social media platforms using AI-powered tools all through a seamless and intuitive dashboard.
 
----
 Try it out here:[Create your social media content with IdeaForgeX now](https://idea-forge-x.vercel.app/)
 
 ## Features
