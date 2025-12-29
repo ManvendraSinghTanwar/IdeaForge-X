@@ -80,7 +80,7 @@ export default function CreatePage() {
       setGeneratedContent(result)
       toast({
         title: "Content Generated! 🎉",
-        description: `Your ${formData.contentType} content is ready using Llama 3.3 70B.`,
+        description: `Your ${formData.contentType} content is ready.`,
       })
     } catch (error) {
       console.error("❌ Generation failed:", error)
@@ -253,7 +253,7 @@ export default function CreatePage() {
           Create Content with AI
         </h1>
         <p className="text-gray-500 dark:text-gray-400">
-          Generate platform-specific content using Llama 3.3 70B Instruct Turbo with realistic templates.
+          Generate platform-specific content with AI-powered realistic templates.
         </p>
       </div>
 
@@ -443,12 +443,12 @@ export default function CreatePage() {
                 {loading ? (
                   <>
                     <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
-                    Generating with Llama 3.3...
+                    Generating...
                   </>
                 ) : (
                   <>
                     <Brain className="mr-2 h-4 w-4" />
-                    Generate with Llama 3.3
+                    Generate Content
                   </>
                 )}
               </Button>
@@ -460,19 +460,11 @@ export default function CreatePage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Brain className="h-5 w-5" />
-                AI Model Status
+                AI Status
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-500">Model</span>
-                  <Badge variant="secondary">Llama 3.3 70B</Badge>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-500">Provider</span>
-                  <Badge variant="outline">Together AI</Badge>
-                </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500">Status</span>
                   <Badge variant={error ? "destructive" : "default"}>
@@ -481,7 +473,7 @@ export default function CreatePage() {
                 </div>
               </div>
               <div className="text-xs text-gray-500">
-                Using Meta's Llama 3.3 70B Instruct Turbo with enhanced error handling and fallback content.
+                Using advanced AI with enhanced error handling and fallback content generation.
               </div>
             </CardContent>
           </Card>
@@ -522,9 +514,6 @@ export default function CreatePage() {
                   <CardTitle className="flex items-center gap-2">
                     <Sparkles className="h-5 w-5 text-purple-500" />
                     Generated {contentTypes.find((t) => t.id === formData.contentType)?.name}
-                    <Badge variant="secondary" className="ml-2">
-                      {generatedContent.model || "Llama 3.3 70B"}
-                    </Badge>
                     {savedContentId && (
                       <Badge variant="default" className="ml-2 bg-green-600">
                         <CheckCircle className="h-3 w-3 mr-1" />

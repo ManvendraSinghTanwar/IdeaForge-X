@@ -1,7 +1,7 @@
 "use server"
 
 import { generateText } from "ai"
-import { createTogetherAI } from "@ai-sdk/togetherai"
+import { openai } from "@ai-sdk/openai"
 
 export async function generateContent(formData: {
   keyword: string
@@ -129,19 +129,14 @@ IMPORTANT: Always respond with valid JSON only. No other text before or after th
     console.log("🔑 Keyword:", keyword)
 
     // Check if API key exists
-    if (!process.env.TOGETHER_API_KEY) {
-      throw new Error("TOGETHER_API_KEY environment variable is not set")
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error("OPENAI_API_KEY environment variable is not set")
     }
 
-    // Create Together AI instance
-    const togetherai = createTogetherAI({
-      apiKey: process.env.TOGETHER_API_KEY,
-    })
-
-    console.log("🤖 Calling Llama 3.3 70B...")
+    console.log("🤖 Calling ChatGPT...")
 
     const { text } = await generateText({
-      model: togetherai("meta-llama/Llama-3.3-70B-Instruct-Turbo"),
+      model: openai("gpt-4o"),
       system: systemPrompt,
       prompt: prompt,
       temperature: Math.min(creativityLevel / 100, 0.9), // Cap at 0.9
@@ -176,7 +171,6 @@ IMPORTANT: Always respond with valid JSON only. No other text before or after th
         ...parsedContent,
         platform: contentType,
         generatedAt: new Date().toISOString(),
-        model: "Llama 3.3 70B",
       }
     } catch (parseError) {
       console.error("❌ JSON parsing failed:", parseError)
@@ -200,7 +194,6 @@ function createFallbackContent(text: string, contentType: string, keyword: strin
   const baseContent = {
     platform: contentType,
     generatedAt: new Date().toISOString(),
-    model: "Llama 3.3 70B (Fallback)",
   }
 
   switch (contentType) {
